@@ -23,22 +23,26 @@ public class Game {
 	@Column(name = "game_year") // Customiza uma coluna lá no banco de dados. year é uma palavra reservada do sql, por isso a custom.
 	private Integer year;
 	private String genre;
-	private String plataforms;
+	private String platforms;
 	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
+	
+	@Column(columnDefinition = "TEXT") // Altera de String(varchar em sql. Recebe até 255 caracteres) para Text no banco(que pode receber mais de 255 caracteres)
 	private String longDescription;
 	
 	public Game() {
 	}
 
-	public Game(Long id, String title, Integer year, String genre, String plataforms, Double score, String imgUrl,
+	public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
 			String shortDescription, String longDescription) {
 		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
-		this.plataforms = plataforms;
+		this.platforms = platforms;
 		this.score = score;
 		this.imgUrl = imgUrl;
 		this.shortDescription = shortDescription;
@@ -78,11 +82,11 @@ public class Game {
 	}
 
 	public String getPlataforms() {
-		return plataforms;
+		return platforms;
 	}
 
 	public void setPlataforms(String plataforms) {
-		this.plataforms = plataforms;
+		this.platforms = plataforms;
 	}
 
 	public Double getScore() {
